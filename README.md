@@ -24,6 +24,4 @@ SocialNetwork is a premium, high-fidelity social media platform built with Angul
 - Node.js (Latest LTS)
 - Angular CLI
 
-\_Created with ❤️
-
-# ![SocialNetwork Logo](public/images/loginBackground.png)
+- Created with ❤️
