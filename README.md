@@ -1,4 +1,4 @@
-# SocialNetwork - Modern Social Network App
+# ![SocialNetwork](public/images/logo.svg) SocialNetwork - Modern Social Network App
 
 SocialNetwork is a premium, high-fidelity social media platform built with Angular. It features a modern design with vibrant aesthetics, glassmorphism elements, and a focus on visual storytelling and community engagement.
 
@@ -25,3 +25,4 @@ SocialNetwork is a premium, high-fidelity social media platform built with Angul
 - Angular CLI
 
 \_Created with ❤️
+# ![SocialNetwork Logo](public/images/loginBackground.png)
