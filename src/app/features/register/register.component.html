@@ -1,1 +1,164 @@
-<p>register works!</p>
+<section class="min-h-screen flex">
+  <div class="hidden lg:flex w-1/2 relative bg-mainColor">
+    <img
+      src="/images/loginBackground.png"
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+    />
+
+    <div
+      class="relative z-10 text-white p-12 flex flex-col justify-between w-full"
+    >
+      <div class="flex items-center gap-2 text-lg font-semibold">
+        <div
+          class="w-8 h-8 bg-white text-blue-600 flex items-center justify-center rounded-md font-bold"
+        >
+          <img src="/logo.svg" alt="page icon" />
+        </div>
+        SocialNetwork
+      </div>
+
+      <div>
+        <h1 class="text-4xl font-bold leading-tight mb-4">
+          Stay connected to <br />
+          what matters most.
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex w-full lg:w-1/2 items-center justify-center bg-gray-50 py-5 px-7"
+  >
+    <div class="w-full max-w-md text-center">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Create your account</h2>
+      <p class="text-gray-500 mb-6">Start your journey with us today.</p>
+
+      <form
+        class="space-y-4"
+        [formGroup]="registerForm"
+        (ngSubmit)="submitForm()"
+      >
+        <div class="relative">
+          <input
+            type="text"
+            id="fullname"
+            formControlName="name"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="fullname"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Full Name</label
+          >
+        </div>
+
+        <div class="relative">
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="username"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >User Name</label
+          >
+        </div>
+
+        <div class="relative">
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="email"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Email</label
+          >
+        </div>
+
+        <div class="relative">
+          <select
+            id="gender"
+            formControlName="gender"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+
+          <label
+            for="gender"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+          >
+            Select Gender
+          </label>
+        </div>
+
+        <div class="relative">
+          <input
+            type="date"
+            id="date"
+            formControlName="dateOfBirth"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="date"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Select Date</label
+          >
+        </div>
+
+        <div class="relative">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="password"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Password</label
+          >
+        </div>
+
+        <div class="relative">
+          <input
+            type="password"
+            id="repassword"
+            formControlName="rePassword"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="repassword"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Confirm Password</label
+          >
+        </div>
+
+        <button
+          class="w-full bg-mainColor text-white py-3 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray"
+        >
+          Create New Account
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Already have an account?
+        <a href="#" class="text-blue-600 font-medium">Log in</a>
+      </p>
+
+    </div>
+  </div>
+</section>
