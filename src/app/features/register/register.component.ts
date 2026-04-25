@@ -28,6 +28,8 @@ export class RegisterComponent {
   });
 
   submitForm(): void {
-    console.log(this.registerForm);
+    if (this.registerForm.valid) {
+      console.log(this.registerForm);
+    }
   }
 }

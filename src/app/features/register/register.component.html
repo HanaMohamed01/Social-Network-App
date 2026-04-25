@@ -29,10 +29,13 @@
   <div
     class="flex w-full lg:w-1/2 items-center justify-center bg-gray-50 py-5 px-7"
   >
-    <div class="w-full max-w-md text-center">
-      <h2 class="text-2xl font-bold text-gray-800 mb-2">Create your account</h2>
-      <p class="text-gray-500 mb-6">Start your journey with us today.</p>
-
+    <div class="w-full max-w-md">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">
+          Create your account
+        </h2>
+        <p class="text-gray-500 mb-6">Start your journey with us today.</p>
+      </div>
       <form
         class="space-y-4"
         [formGroup]="registerForm"
@@ -52,6 +55,26 @@
             >Full Name</label
           >
         </div>
+
+        @if (
+          registerForm.get("name")?.invalid && registerForm.get("name")?.touched
+        ) {
+          <div
+            class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert"
+          >
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                @if (registerForm.get("name")?.hasError("required")) {
+                  <li>Full Name is required.</li>
+                } @else if (registerForm.get("name")?.hasError("minlength")) {
+                  <li>Name must be at least 3 characters</li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
 
         <div class="relative">
           <input
@@ -83,6 +106,27 @@
           >
         </div>
 
+        @if (
+          registerForm.get("email")?.invalid &&
+          registerForm.get("email")?.touched
+        ) {
+          <div
+            class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert"
+          >
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                @if (registerForm.get("email")?.hasError("required")) {
+                  <li>Email is required.</li>
+                } @else if (registerForm.get("email")?.hasError("email")) {
+                  <li>Please enter a valid email address.</li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
+
         <div class="relative">
           <select
             id="gender"
@@ -101,6 +145,25 @@
             Select Gender
           </label>
         </div>
+
+        @if (
+          registerForm.get("gender")?.invalid &&
+          registerForm.get("gender")?.touched
+        ) {
+          <div
+            class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert"
+          >
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                @if (registerForm.get("gender")?.hasError("required")) {
+                  <li>Please select your gender.</li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
 
         <div class="relative">
           <input
@@ -131,6 +194,29 @@
             >Password</label
           >
         </div>
+        @if (
+          registerForm.get("password")?.invalid &&
+          registerForm.get("password")?.touched
+        ) {
+          <div
+            class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert"
+          >
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                @if (registerForm.get("password")?.hasError("required")) {
+                  <li>Password is required.</li>
+                } @else if (registerForm.get("password")?.hasError("pattern")) {
+                  <li>
+                    Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1
+                    number, and 1 special
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
 
         <div class="relative">
           <input
@@ -147,8 +233,28 @@
           >
         </div>
 
+        @if (
+          registerForm.get("rePassword")?.invalid &&
+          registerForm.get("rePassword")?.touched
+        ) {
+          <div
+            class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert"
+          >
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                @if (registerForm.get("rePassword")?.hasError("required")) {
+                  <li>Please confirm your password.</li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
+
         <button
-          class="w-full bg-mainColor text-white py-3 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray"
+          [disabled]="registerForm.invalid"
+          class="w-full bg-mainColor text-white py-3 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400"
         >
           Create New Account
         </button>
@@ -158,7 +264,6 @@
         Already have an account?
         <a href="#" class="text-blue-600 font-medium">Log in</a>
       </p>
-
     </div>
   </div>
 </section>
