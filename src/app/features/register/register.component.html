@@ -246,6 +246,10 @@
               <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
                 @if (registerForm.get("rePassword")?.hasError("required")) {
                   <li>Please confirm your password.</li>
+                } @else if (
+                  registerForm.get("rePassword")?.hasError("mismatch")
+                ) {
+                  <li>Passwords do not match.</li>
                 }
               </ul>
             </div>
