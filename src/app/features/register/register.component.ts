@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../core/auth/services/auth.service';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule],
@@ -13,6 +14,8 @@ import {
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
+  private readonly authService = inject(AuthService);
+
   registerForm: FormGroup = new FormGroup(
     {
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -31,6 +34,8 @@ export class RegisterComponent {
     { validators: this.confirmPassword },
   );
 
+  msgError: string = '';
+
   confirmPassword(group: AbstractControl) {
     const password = group.get('password')?.value;
     const rePassword = group.get('rePassword')?.value;
@@ -39,14 +44,22 @@ export class RegisterComponent {
       group.get('rePassword')?.setErrors({ mismatch: true });
 
       return { mismatch: true };
-
     }
     return null;
   }
 
   submitForm(): void {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      this.authService.signUp(this.registerForm.value).subscribe({
+        next: (res: any) => {
+          this.msgError = '';
+          console.log(res);
+        },
+        error: (err: any) => {
+          console.log(err);
+          this.msgError = err.error.message;
+        },
+      });
     }
   }
 }

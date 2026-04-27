@@ -36,6 +36,16 @@
         </h2>
         <p class="text-gray-500 mb-6">Start your journey with us today.</p>
       </div>
+
+      @if (msgError && msgError !== "") {
+        <div
+          class="p-4 mb-4 text-sm w-90 m-auto text-fg-danger-strong rounded-base bg-danger-soft"
+          role="alert"
+        >
+          <span class="font-medium">{{ msgError }}</span>
+        </div>
+      }
+
       <form
         class="space-y-4"
         [formGroup]="registerForm"
