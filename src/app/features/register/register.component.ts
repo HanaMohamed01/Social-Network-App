@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../core/auth/services/auth.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule],
@@ -34,7 +35,9 @@ export class RegisterComponent {
     { validators: this.confirmPassword },
   );
 
+  loading: boolean = false;
   msgError: string = '';
+  registerSub: Subscription = new Subscription();
 
   confirmPassword(group: AbstractControl) {
     const password = group.get('password')?.value;
@@ -50,16 +53,24 @@ export class RegisterComponent {
 
   submitForm(): void {
     if (this.registerForm.valid) {
-      this.authService.signUp(this.registerForm.value).subscribe({
-        next: (res: any) => {
-          this.msgError = '';
-          console.log(res);
-        },
-        error: (err: any) => {
-          console.log(err);
-          this.msgError = err.error.message;
-        },
-      });
+      this.loading = true;
+      this.registerSub.unsubscribe();
+      this.registerSub = this.authService
+        .signUp(this.registerForm.value)
+        .subscribe({
+          next: (res: any) => {
+            this.msgError = '';
+            this.loading = false;
+            console.log(res);
+          },
+          error: (err: any) => {
+            console.log(err);
+            this.msgError = err.error.message;
+            this.loading = false;
+          },
+        });
+    } else {
+      this.registerForm.markAllAsTouched();
     }
   }
 }
