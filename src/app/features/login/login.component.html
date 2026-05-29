@@ -1,1 +1,116 @@
-<p>login works!</p>
+<section class="min-h-screen flex">
+  <div
+    class="flex w-full lg:w-1/2 items-center justify-center bg-gray-50 py-5 px-7"
+  >
+    <div class="w-full max-w-md">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-5">
+          Welcome Back To Us
+        </h2>
+      </div>
+      @if (msgError && msgError !== "") {
+        <div
+          class="p-4 mb-4 text-sm w-90 m-auto text-fg-danger-strong rounded-base bg-danger-soft"
+          role="alert"
+        >
+          <span class="font-medium">{{ msgError }}</span>
+        </div>
+      }
+      <form
+        class="space-y-4"
+        [formGroup]="registerForm"
+        (ngSubmit)="submitFormLogin()"
+      >
+        <div class="relative">
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="email"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Email</label
+          >
+        </div>
+        @if (
+          registerForm.get("email")?.invalid &&
+          registerForm.get("email")?.touched
+        ) {
+          <div
+            class="flex p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+            role="alert"
+          >
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+                @if (registerForm.get("email")?.hasError("required")) {
+                  <li>Email is required.</li>
+                } @else if (registerForm.get("email")?.hasError("email")) {
+                  <li>Please enter a valid email address.</li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
+        <div class="relative">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            placeholder=" "
+          />
+          <label
+            for="password"
+            class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
+            >Password</label
+          >
+        </div>
+
+        <!-- [disabled]="loading || registerForm.invalid" -->
+        <button
+          [disabled]="loading"
+          class="w-60 block m-auto mt-6 bg-mainColor text-white py-3 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400"
+        >
+          Login
+          @if (loading) {
+            <span class="fas fa-spinner animate-spin ml-1"></span>
+          }
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Didn't have an account ?
+        <a routerLink="/register" class="text-blue-600 font-medium">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="hidden lg:flex w-1/2 relative bg-mainColor">
+    <img
+      src="/images/Mano%20Teléfono.jpg"
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+    />
+    <div
+      class="relative z-10 text-white p-12 flex flex-col justify-between w-full"
+    >
+      <div class="flex items-center gap-2 text-lg font-semibold">
+        <div
+          class="w-8 h-8 bg-white text-blue-600 flex items-center justify-center rounded-md font-bold"
+        >
+          <img src="/logo.svg" alt="page icon" />
+        </div>
+        SocialNetwork
+      </div>
+      <div>
+        <h1 class="text-4xl font-bold leading-tight mb-4">
+          Stay connected to <br />
+          what matters most.
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
