@@ -1,27 +1,41 @@
-# ![SocialNetwork](public/logo.svg) SocialNetwork - Modern Social Network App
+<div align="center">
+  <img src="public/logo.svg" width="72" alt="SocialNetwork logo" />
+  <h1>SocialNetwork</h1>
+  <p>A clean, responsive social-network experience built with Angular.</p>
 
-SocialNetwork is a premium, high-fidelity social media platform built with Angular. It features a modern design with vibrant aesthetics, glassmorphism elements, and a focus on visual storytelling and community engagement.
+  <p>
+    <img src="https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white" alt="Angular 20" />
+    <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5.8" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
+  </p>
+</div>
 
-## ✨ Key Features
+## Overview
 
-- **🔐 Secure Authentication**: Beautifully designed Sign Up and Login screens with social integration (Google & Apple).
-- **🏠 Dynamic Home Feed**: Stay connected with what's happening. Explore posts, trending topics, and suggestions to follow.
-- **👤 User Profiles**: Rich user profiles featuring personalized bios, activity stats, and a visual grid of posts.
-- **🔔 Notification Center**: Real-time updates for followers, likes, comments, and mentions.
-- **⚙️ Advanced Settings**: Comprehensive account management including password changes and privacy controls.
+**SocialNetwork** is a modern frontend application that lays the foundation for a connected social experience. It combines a polished visual identity with a smooth account-access journey, making it easy for users to create an account and sign in before entering the app.
 
-## 🚀 Tech Stack
+The interface is designed to feel clear and welcoming: focused forms, helpful validation feedback, responsive layouts, and image-led authentication screens that adapt naturally from desktop to mobile.
 
-- **Frontend Framework**: [Angular v20](https://angular.io/)
-- **Programming Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & [Flowbite](https://flowbite.com/)
-- **Icons**: [Font Awesome](https://fontawesome.com/) & Custom SVG.
+## What the project includes
 
-## 🛠️ Getting Started
+- A refined sign-up experience for creating a new account.
+- A sign-in flow with validation, loading feedback, and clear error states.
+- Protected areas that distinguish between guests and signed-in users.
+- A scalable application structure with dedicated areas for the feed, profile, notifications, and account settings.
+- Responsive styling and a consistent visual theme powered by Tailwind CSS and Flowbite.
 
-### Prerequisites
+> The authentication experience is the main completed part of the current version. The feed, profile, notifications, and password-management screens are already prepared in the project and can be expanded as the application grows.
 
-- Node.js (Latest LTS)
-- Angular CLI
+## Built with
 
-~ Created with ❤️
+| Technology | Purpose |
+| --- | --- |
+| [Angular 20](https://angular.dev/) | Application framework and routing |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe application logic |
+| [Tailwind CSS](https://tailwindcss.com/) | Responsive, utility-first styling |
+| [Flowbite](https://flowbite.com/) | Ready-to-use interface components |
+| Font Awesome | Icons and visual details |
+
+## Project direction
+
+SocialNetwork is designed to grow from a strong authentication base into a complete social platform. Upcoming work can build on the existing structure to add posts, profiles, notifications, account settings, and richer user interactions.
