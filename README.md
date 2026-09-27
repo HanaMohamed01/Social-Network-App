@@ -39,3 +39,7 @@ The interface is designed to feel clear and welcoming: focused forms, helpful va
 ## Project direction
 
 SocialNetwork is designed to grow from a strong authentication base into a complete social platform. Upcoming work can build on the existing structure to add posts, profiles, notifications, account settings, and richer user interactions.
+
+---
+
+Built with care to make every connection feel simple, smooth, and meaningful.
