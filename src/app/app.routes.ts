@@ -9,12 +9,15 @@ import { NotificationComponent } from './features/notification/notification.comp
 import { ChangePasswordComponent } from './features/change-password/change-password.component';
 import { FeedComponent } from './features/feed/feed.component';
 import { NotFoundComponent } from './features/not-found/not-found.component';
+import { authGuard } from './core/auth/guards/auth-guard';
+import { guestGuard } from './core/auth/guards/guest-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '',
     component: AuthLayoutComponent,
+    canActivate: [guestGuard],
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
@@ -24,6 +27,7 @@ export const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [authGuard],
     children: [
       { path: 'feed', component: FeedComponent },
       { path: 'profile', component: ProfileComponent },

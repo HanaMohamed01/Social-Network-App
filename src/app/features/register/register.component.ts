@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
+  FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -18,21 +18,25 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
+  private readonly formBuilder = inject(FormBuilder);
 
-  registerForm: FormGroup = new FormGroup(
+  registerForm: FormGroup = this.formBuilder.group(
     {
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      username: new FormControl(''),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      dateOfBirth: new FormControl('', Validators.required),
-      gender: new FormControl('female', Validators.required),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.pattern(
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-        ),
-      ]),
-      rePassword: new FormControl('', Validators.required),
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      username: [''],
+      email: ['', [Validators.required, Validators.email]],
+      dateOfBirth: ['', Validators.required],
+      gender: ['female', Validators.required],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+          ),
+        ],
+      ],
+      rePassword: ['', Validators.required],
     },
     { validators: this.confirmPassword },
   );
@@ -63,7 +67,7 @@ export class RegisterComponent {
           next: (res: any) => {
             this.msgError = '';
             this.loading = false;
-            this.router.navigate(['/login'])
+            this.router.navigate(['/login']);
             console.log(res);
           },
           error: (err: any) => {
