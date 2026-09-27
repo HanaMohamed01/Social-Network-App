@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../core/auth/services/auth.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule],
@@ -16,6 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class RegisterComponent {
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
 
   registerForm: FormGroup = new FormGroup(
     {
@@ -43,7 +45,7 @@ export class RegisterComponent {
     const password = group.get('password')?.value;
     const rePassword = group.get('rePassword')?.value;
 
-    if (rePassword != password) {
+    if (rePassword !== password && rePassword !== '') {
       group.get('rePassword')?.setErrors({ mismatch: true });
 
       return { mismatch: true };
@@ -61,6 +63,7 @@ export class RegisterComponent {
           next: (res: any) => {
             this.msgError = '';
             this.loading = false;
+            this.router.navigate(['/login'])
             console.log(res);
           },
           error: (err: any) => {

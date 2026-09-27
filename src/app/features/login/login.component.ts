@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class LoginComponent {
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
 
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -32,7 +33,10 @@ export class LoginComponent {
   msgError: string = '';
 
   submitFormLogin(): void {
-    if (this.registerForm.valid) {
+    const emailControl = this.registerForm.get('email');
+    const passwordControl = this.registerForm.get('password');
+
+    if (emailControl?.valid && passwordControl?.value) {
       this.loading = true;
       this.registerSub.unsubscribe();
       this.registerSub = this.authService
@@ -41,11 +45,15 @@ export class LoginComponent {
           next: (res: any) => {
             this.msgError = '';
             this.loading = false;
+            this.router.navigate(['/feed']);
             console.log(res);
           },
           error: (err: any) => {
             console.log(err);
-            this.msgError = err.error.message;
+            this.msgError =
+              err.status >= 400 && err.status < 500
+                ? 'Email or password is incorrect.'
+                : 'Unable to log in. Please try again.';
             this.loading = false;
           },
         });
