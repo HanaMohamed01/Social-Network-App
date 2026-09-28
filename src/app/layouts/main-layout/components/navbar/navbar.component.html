@@ -49,17 +49,18 @@
           <li>
             <a
               routerLink="/change"
-              routerLinkActive="bg-blue-50"
-              class="group inline-flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-mainColor"
+              routerLinkActive="bg-blue-50 text-mainColor"
+              class="group inline-flex w-full items-center gap-3 rounded-lg px-2 py-2 transition hover:bg-blue-50 hover:text-mainColor"
             >
               <span
-                class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition group-hover:bg-white group-hover:text-mainColor"
+                routerLinkActive="bg-white"
+                class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 transition group-hover:bg-white group-hover:text-mainColor"
               >
                 <i class="fa-solid fa-gear" aria-hidden="true"></i>
               </span>
               <span>Settings</span>
               <i
-                class="fa-solid fa-chevron-right ms-auto text-xs text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-mainColor"
+                class="fa-solid fa-chevron-right ms-auto text-xs transition group-hover:translate-x-0.5 group-hover:text-mainColor"
                 aria-hidden="true"
               ></i>
             </a>
