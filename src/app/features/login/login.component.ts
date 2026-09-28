@@ -37,6 +37,14 @@ export class LoginComponent {
   loading: boolean = false;
   msgError: string = '';
 
+  showPass(type: HTMLInputElement): void {
+    if (type.type === 'password') {
+      type.type = 'text';
+    } else {
+      type.type = 'password';
+    }
+  }
+
   submitFormLogin(): void {
     const emailControl = this.loginForm.get('email');
     const passwordControl = this.loginForm.get('password');

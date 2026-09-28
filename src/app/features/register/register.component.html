@@ -55,6 +55,12 @@
           <input
             type="text"
             id="fullname"
+            [class]="{
+              'border-green-700': registerForm.get('name')?.valid,
+              'border-red-700':
+                registerForm.get('name')?.invalid &&
+                registerForm.get('name')?.touched,
+            }"
             formControlName="name"
             class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
             placeholder=" "
@@ -89,6 +95,14 @@
         <div class="relative">
           <input
             type="text"
+            [class]="{
+              'border-green-700':
+                registerForm.get('username')?.valid &&
+                registerForm.get('username')?.dirty,
+              'border-red-700':
+                registerForm.get('username')?.invalid &&
+                registerForm.get('username')?.touched,
+            }"
             id="username"
             formControlName="username"
             class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
@@ -105,6 +119,12 @@
           <input
             type="email"
             id="email"
+            [class]="{
+              'border-green-700': registerForm.get('email')?.valid,
+              'border-red-700':
+                registerForm.get('email')?.invalid &&
+                registerForm.get('email')?.touched,
+            }"
             formControlName="email"
             class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
             placeholder=" "
@@ -192,8 +212,15 @@
 
         <div class="relative">
           <input
+            #password
             type="password"
             id="password"
+            [class]="{
+              'border-green-700': registerForm.get('password')?.valid,
+              'border-red-700':
+                registerForm.get('password')?.invalid &&
+                registerForm.get('password')?.touched,
+            }"
             formControlName="password"
             class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
             placeholder=" "
@@ -203,6 +230,18 @@
             class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
             >Password</label
           >
+          <span
+            (click)="showPass(password)"
+            class="absolute right-3 top-3.5 text-gray-500 cursor-pointer"
+          >
+            <i
+              [class]="
+                password.type === 'password'
+                  ? 'fa-solid fa-eye-slash'
+                  : 'fa-solid fa-eye'
+              "
+            ></i>
+          </span>
         </div>
         @if (
           registerForm.get("password")?.invalid &&
@@ -230,8 +269,15 @@
 
         <div class="relative">
           <input
+            #rePassword
             type="password"
             id="repassword"
+            [class]="{
+              'border-green-700': registerForm.get('rePassword')?.valid,
+              'border-red-700':
+                registerForm.get('rePassword')?.invalid &&
+                registerForm.get('rePassword')?.touched,
+            }"
             formControlName="rePassword"
             class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
             placeholder=" "
@@ -241,6 +287,18 @@
             class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-left bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto inset-s-1"
             >Confirm Password</label
           >
+          <span
+            (click)="showPass(rePassword)"
+            class="absolute right-3 top-3.5 text-gray-500 cursor-pointer"
+          >
+            <i
+              [class]="
+                rePassword.type === 'password'
+                  ? 'fa-solid fa-eye-slash'
+                  : 'fa-solid fa-eye'
+              "
+            ></i>
+          </span>
         </div>
 
         @if (

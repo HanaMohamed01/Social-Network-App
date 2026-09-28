@@ -57,6 +57,14 @@ export class RegisterComponent {
     return null;
   }
 
+  showPass(type: HTMLInputElement): void {
+    if (type.type === 'password') {
+      type.type = 'text';
+    } else {
+      type.type = 'password';
+    }
+  }
+
   submitForm(): void {
     if (this.registerForm.valid) {
       this.loading = true;

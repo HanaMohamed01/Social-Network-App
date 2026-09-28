@@ -1,1 +1,137 @@
-<p>navbar works!</p>
+<nav
+  class="inset-x-0 top-0 z-20 border-b border-slate-200/80 bg-white/95 shadow-sm backdrop-blur"
+>
+  <div
+    class="mx-auto flex min-h-18 max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6"
+  >
+    <a
+      routerLink="/"
+      class="group flex items-center gap-3 rounded-xl outline-none transition hover:opacity-85 focus-visible:ring-2 focus-visible:ring-mainColor focus-visible:ring-offset-2"
+    >
+      <span
+        class="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 p-1.5 shadow-sm transition group-hover:border-blue-200 group-hover:bg-blue-100"
+      >
+        <img src="logo.svg" class="h-full w-full" alt="SocialNetwork Logo" />
+      </span>
+      <span
+        class="self-center whitespace-nowrap text-lg font-bold tracking-tight text-slate-800"
+      >
+        Social<span class="text-mainColor">Network</span>
+      </span>
+    </a>
+
+    <div class="order-2 flex items-center gap-2 md:order-3">
+      <button
+        type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-mainColor shadow-sm transition hover:border-blue-200 hover:bg-blue-50 focus:ring-4 focus:ring-blue-100 md:me-0"
+        id="user-menu-button"
+        aria-expanded="false"
+        data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom"
+      >
+        <span class="sr-only">Open user menu</span>
+        <i class="fa-regular fa-user text-sm" aria-hidden="true"></i>
+      </button>
+
+      <div
+        class="z-50 hidden w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"
+        id="user-dropdown"
+      >
+        <div class="border-b border-slate-100 px-4 py-3 text-sm">
+          <span class="text-center block font-semibold text-slate-800"
+            >User Name</span
+          >
+        </div>
+        <ul
+          class="p-1.5 text-sm font-medium text-slate-600"
+          aria-labelledby="user-menu-button"
+        >
+          <li>
+            <a
+              routerLink="/change"
+              routerLinkActive="bg-blue-50"
+              class="group inline-flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-mainColor"
+            >
+              <span
+                class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition group-hover:bg-white group-hover:text-mainColor"
+              >
+                <i class="fa-solid fa-gear" aria-hidden="true"></i>
+              </span>
+              <span>Settings</span>
+              <i
+                class="fa-solid fa-chevron-right ms-auto text-xs text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-mainColor"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </li>
+          <li class="mt-1 border-t border-slate-100 pt-1">
+            <a
+              href="#"
+              class="group inline-flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-red-600 transition hover:bg-red-50"
+              (click)="logOut()"
+            >
+              <span
+                class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50 text-red-500 transition group-hover:bg-white"
+              >
+                <i class="fa-solid fa-sign-out-alt" aria-hidden="true"></i>
+              </span>
+              <span>Log out</span>
+              <i
+                class="fa-solid fa-chevron-right ms-auto text-xs text-red-300 transition group-hover:translate-x-0.5 group-hover:text-red-500"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <button
+        data-collapse-toggle="navbar-user"
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-mainColor focus:outline-none focus:ring-4 focus:ring-blue-100 md:hidden"
+        aria-controls="navbar-user"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div
+      class="order-3 hidden w-full md:order-2 md:flex md:w-auto md:items-center"
+      id="navbar-user"
+    >
+      <ul
+        class="mt-1 flex flex-col gap-1 rounded-xl border border-slate-200 bg-slate-50 p-2 md:mt-0 md:flex-row md:items-center md:gap-2 md:border-0 md:bg-blue-50/50 md:p-1.5 md:px-3"
+      >
+        <li>
+          <a
+            routerLink="/feed"
+            routerLinkActive="bg-white text-mainColor"
+            class="flex items-center gap-2 text-gray-600 rounded-lg px-3.5 py-2 text-sm font-medium transition hover:bg-blue-50 hover:text-mainColor"
+          >
+            <i class="fa-regular fa-house text-sm"></i>Feed
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/profile"
+            routerLinkActive="bg-white text-mainColor"
+            class="flex items-center gap-2 text-gray-600 rounded-lg px-3.5 py-2 text-sm font-medium transition hover:bg-blue-50 hover:text-mainColor"
+          >
+            <i class="fa-regular fa-user text-sm"></i>Profile
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/notification"
+            routerLinkActive="bg-white text-mainColor"
+            class="flex items-center gap-2 text-gray-600 rounded-lg px-3.5 py-2 text-sm font-medium transition hover:bg-blue-50 hover:text-mainColor"
+          >
+            <i class="fa-regular fa-bell text-sm"></i>Notifications
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
