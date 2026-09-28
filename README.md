@@ -1,44 +1,41 @@
 <div align="center">
   <img src="public/logo.svg" width="72" alt="SocialNetwork logo" />
   <h1>SocialNetwork</h1>
-  <p>A clean, responsive social-network experience built with Angular.</p>
+  <p>A modern social networking platform for sharing moments, building connections, and staying in the loop.</p>
 
   <p>
     <img src="https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white" alt="Angular 20" />
     <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5.8" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
+    <img src="https://img.shields.io/badge/REST_API-Integration-009688" alt="REST API integration" />
   </p>
 </div>
 
 ## Overview
 
-**SocialNetwork** is a modern frontend application that lays the foundation for a connected social experience. It combines a polished visual identity with a smooth account-access journey, making it easy for users to create an account and sign in before entering the app.
+**SocialNetwork** is a responsive social media web application designed to make online connections feel simple and engaging. It brings together secure account access, personalized content, profile management, and notifications in one seamless experience.
 
-The interface is designed to feel clear and welcoming: focused forms, helpful validation feedback, responsive layouts, and image-led authentication screens that adapt naturally from desktop to mobile.
+From the first sign-in to everyday interactions, the application focuses on a clean interface, clear feedback, and smooth navigation across desktop and mobile devices.
 
-## What the project includes
+## Features
 
-- A refined sign-up experience for creating a new account.
-- A sign-in flow with validation, loading feedback, and clear error states.
-- Protected areas that distinguish between guests and signed-in users.
-- A scalable application structure with dedicated areas for the feed, profile, notifications, and account settings.
-- Responsive styling and a consistent visual theme powered by Tailwind CSS and Flowbite.
-
-> The authentication experience is the main completed part of the current version. The feed, profile, notifications, and password-management screens are already prepared in the project and can be expanded as the application grows.
+- **Secure authentication** — Create an account and sign in through a validated, user-friendly flow.
+- **Personalized feed** — Explore updates and content from your network in one central space.
+- **User profiles** — View and manage personal information and activity in a dedicated profile area.
+- **Notifications** — Stay connected with updates and activity across the platform.
+- **Account settings** — Manage account preferences and password settings with ease.
+- **Responsive experience** — Enjoy a consistent, polished interface on mobile, tablet, and desktop screens.
 
 ## Built with
 
 | Technology | Purpose |
 | --- | --- |
-| [Angular 20](https://angular.dev/) | Application framework and routing |
-| [TypeScript](https://www.typescriptlang.org/) | Type-safe application logic |
+| [Angular 20](https://angular.dev/) | Frontend framework, components, and routing |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe application development |
+| RESTful APIs | User authentication and application data integration |
 | [Tailwind CSS](https://tailwindcss.com/) | Responsive, utility-first styling |
-| [Flowbite](https://flowbite.com/) | Ready-to-use interface components |
+| [Flowbite](https://flowbite.com/) | Reusable interface components |
 | Font Awesome | Icons and visual details |
-
-## Project direction
-
-SocialNetwork is designed to grow from a strong authentication base into a complete social platform. Upcoming work can build on the existing structure to add posts, profiles, notifications, account settings, and richer user interactions.
 
 ---
 
