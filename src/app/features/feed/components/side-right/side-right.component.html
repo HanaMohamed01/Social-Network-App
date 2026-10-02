@@ -1,0 +1,71 @@
+<aside class="min-w-0">
+  <section
+    aria-labelledby="suggested-title"
+    class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+  >
+    <div class="flex items-center justify-between gap-3">
+      <h2
+        id="suggested-title"
+        class="flex items-center gap-2 text-sm font-bold text-slate-800"
+      >
+        <i class="fa-solid fa-user-group text-mainColor" aria-hidden="true"></i>
+        Suggested friend
+      </h2>
+      <span
+        class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-500"
+        >1</span
+      >
+    </div>
+
+    <label
+      class="mt-4 flex items-center gap-2.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-400"
+    >
+      <i class="fa-solid fa-magnifying-glass text-xs" aria-hidden="true"></i>
+      <span class="sr-only">Search friends</span>
+      <input
+        type="search"
+        placeholder="Search friends..."
+        class="min-w-0 flex-1 bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400 border-0"
+      />
+    </label>
+
+    <article class="mt-3 rounded-xl border border-slate-200 p-3">
+      <div class="flex items-center gap-3">
+        <div
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800"
+          aria-hidden="true"
+        >
+          <i class="fa-regular fa-user text-sm" aria-hidden="true"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="truncate text-sm font-semibold text-slate-800">
+           User Name
+          </p>
+          <p class="truncate text-xs text-slate-500">@userName</p>
+        </div>
+        <button
+          type="button"
+          class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-blue-50 px-3 py-2 text-xs font-semibold text-mainColor transition hover:bg-blue-100"
+        >
+          <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+          Follow
+        </button>
+      </div>
+      <div
+        class="mt-3 flex flex-wrap gap-2 text-[11px] font-medium text-slate-500"
+      >
+        <span class="rounded-full bg-slate-100 px-2.5 py-1">83 followers</span>
+        <span class="rounded-full bg-blue-50 px-2.5 py-1 text-mainColor"
+          >2 mutual</span
+        >
+      </div>
+    </article>
+    <button
+      type="button"
+      class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 py-2.5 text-sm font-semibold text-mainColor transition hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
+    >
+      View more
+      <i class="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
+    </button>
+  </section>
+</aside>
