@@ -13,6 +13,8 @@ export class ContentComponent implements OnInit {
 
   postsData: Post[] = [];
 
+  currentUser = JSON.parse(localStorage.getItem('userData') || 'null');
+
   ngOnInit(): void {
     this.getAllPostsData();
   }
