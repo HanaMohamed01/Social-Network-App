@@ -7,7 +7,11 @@
         class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-mainColor"
         aria-hidden="true"
       >
-        HA
+      <img
+            [src]="post.user.photo"
+            [alt]="post.user.name"
+            class="h-full w-full object-cover rounded-full"
+          />
       </div>
       <div class="min-w-0">
         <p class="truncate text-sm font-bold text-slate-800">User Name</p>
